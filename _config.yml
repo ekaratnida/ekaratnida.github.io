@@ -1,6 +1,4 @@
 # Site
-repository: sproogen/resume-theme
-favicon: images/favicon.ico
 
 # Content configuration version
 version: 2
@@ -13,34 +11,4 @@ website: https://as.nida.ac.th/#
 
 # Dark Mode (true/false/never)
 darkmode: false
-
-# Social links
-twitter_username: ekaratrattagan
-github_username:  ekaratnida
-# stackoverflow_username: "00000001"
-# dribbble_username: jekyll
-facebook_username: pokekarat
-# flickr_username: jekyll
-# instagram_username: jameswgrant
-# linkedin_username: jameswgrant
-# xing_username: jekyll
-# pinterest_username: jekyll
-#youtube_username: globalmtb
-# googleplus_username: +jekyll
-# orcid_username: 0000-0000-0000-0000
-
-# Additional icon links
-#additional_links:
-#- title: itsgoingto.be
-#  icon: fas fa-globe
-#  url: https://www.itsgoingto.be
-# - title: another link
-#   icon: font awesome brand icon name (eg. fab fa-twitter) (https://fontawesome.com/icons?d=gallery&m=free)
-#   url: Link url (eg. https://google.com)
-
-# Google Analytics and Tag Manager
-# Using more than one of these may cause issues with reporting
-# gtm: "GTM-0000000"
-# gtag: "UA-00000000-0"
-# google_analytics: "UA-00000000-0"
 
