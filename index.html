@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ekarat Rattagan, Ph.D. - NIDA</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #1a365d;
+      --secondary: #2c5282;
+      --accent: #3182ce;
+      --light: #f7fafc;
+      --border: #e2e8f0;
+      --text: #2d3748;
+      --text-light: #718096;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--light);
+    }
+
+    .header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+      color: white;
+      padding: 3rem 2rem;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .header-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .profile-img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255,255,255,0.3);
+      flex-shrink: 0;
+    }
+
+    .profile-info h1 {
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 0.25rem;
+    }
+
+    .profile-info .title {
+      font-size: 1.1rem;
+      font-weight: 300;
+      opacity: 0.9;
+      margin-bottom: 0.5rem;
+    }
+
+    .profile-info .thai-name {
+      font-size: 1.3rem;
+      font-weight: 400;
+      margin-top: 0.75rem;
+      padding-top: 0.75rem;
+      border-top: 1px solid rgba(255,255,255,0.2);
+    }
+
+    .profile-info .thai-title {
+      font-size: 0.95rem;
+      font-weight: 300;
+      opacity: 0.85;
+    }
+
+    .nav {
+      background: white;
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .nav-content {
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      padding: 0 2rem;
+    }
+
+    .nav a {
+      padding: 1rem 0;
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 500;
+      border-bottom: 3px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .nav a:hover {
+      color: var(--accent);
+      border-bottom-color: var(--accent);
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 2rem auto;
+      padding: 0 2rem;
+    }
+
+    .card {
+      background: white;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+      border: 1px solid var(--border);
+    }
+
+    h2 {
+      color: var(--primary);
+      font-size: 1.5rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid var(--border);
+    }
+
+    h3 {
+      color: var(--secondary);
+      font-size: 1.15rem;
+      margin-top: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    a:hover {
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    .bio {
+      font-size: 1.05rem;
+      color: var(--text);
+    }
+
+    .publication-list {
+      list-style: none;
+    }
+
+    .publication-list li {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+      line-height: 1.6;
+    }
+
+    .publication-list li:last-child {
+      border-bottom: none;
+    }
+
+    .pub-label {
+      display: inline-block;
+      background: var(--accent);
+      color: white;
+      padding: 0.15rem 0.5rem;
+      border-radius: 3px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      margin-right: 0.5rem;
+      min-width: 2.5rem;
+      text-align: center;
+    }
+
+    .workshop-item {
+      padding: 0.75rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .workshop-item:last-child {
+      border-bottom: none;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .game-link {
+      display: block;
+      padding: 1rem;
+      background: var(--light);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    .game-link:hover {
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+
+    .contact-links {
+      display: flex;
+      gap: 1.5rem;
+      flex-wrap: wrap;
+      margin-top: 1rem;
+    }
+
+    .contact-links a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--light);
+      border-radius: 6px;
+      border: 1px solid var(--border);
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+
+    .contact-links a:hover {
+      background: var(--accent);
+      color: white;
+      text-decoration: none;
+      border-color: var(--accent);
+    }
+
+    .cv-link {
+      display: inline-block;
+      margin-top: 0.5rem;
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 6px;
+      font-weight: 500;
+      transition: background 0.2s;
+    }
+
+    .cv-link:hover {
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      color: var(--text-light);
+      font-size: 0.9rem;
+      border-top: 1px solid var(--border);
+      margin-top: 3rem;
+    }
+
+    .visitor-counter {
+      display: inline-flex;
+      gap: 0.25rem;
+      margin-top: 0.5rem;
+    }
+
+    .counter-item {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      font-weight: 500;
+      min-width: 1.5rem;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .profile-img {
+        width: 150px;
+        height: 150px;
+      }
+
+      .nav-content {
+        overflow-x: auto;
+        gap: 1rem;
+      }
+
+      .games-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="header">
+    <div class="header-content">
+      <img src="mypic.jpg" alt="Ekarat Rattagan" class="profile-img">
+      <div class="profile-info">
+        <h1>Asst. Prof. Ekarat Rattagan, Ph.D.</h1>
+        <p class="title">Associate Dean for Administrative Affairs</p>
+        <p class="title">Director, Master of Science in Data Analytics and Data Science <a href="https://www.facebook.com/BusinessAnalyticsNIDA" target="_blank" style="color: #90cdf4;">(DADS)</a></p>
+        <p class="title">Graduate School of Applied Statistics, NIDA, Bangkok, Thailand</p>
+        <div class="thai-name">ผศ.ดร. เอกรัฐ รัฐกาญจน์</div>
+        <p class="thai-title">รองคณบดีฝ่ายบริหาร และ ผู้อำนวยการหลักสูตรการวิเคราะห์ข้อมูลและวิทยาการข้อมูล</p>
+        <p class="thai-title">คณะสถิติประยุกต์ สถาบันบัณฑิตพัฒนบริหารศาสตร์ (นิด้า)</p>
+      </div>
+    </div>
+  </div>
+
+  <nav class="nav">
+    <div class="nav-content">
+      <a href="#about">About</a>
+      <a href="#workshop">Workshop</a>
+      <a href="#publications">Publications</a>
+      <a href="#games">Games</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="card" id="about">
+      <h2>About</h2>
+      <p class="bio">I received a Bachelor of Architecture (B.Arch.) from Chulalongkorn University in 1999, an M.S. degree in Information Technology from King Mongkut's University of Technology Thonburi (KMUTT), Bangkok, Thailand, in 2003, and a Ph.D. in Electrical Engineering and Computer Science from National Chiao Tung University, Taiwan, in 2016, where I was fortunate to be advised by <a href="https://speed.cs.nycu.edu.tw/~ydlin/" target="_blank">Prof. Ying-Dar Lin</a>. My research interests include mobile devices and systems, AI/ML, and video games.</p>
+      <a href="CV-Ekarat.pdf" class="cv-link" target="_blank">Download CV</a>
+    </div>
+
+    <div class="card" id="workshop">
+      <h2>Workshop</h2>
+      <div class="workshop-item">
+        <strong>AI Automation</strong> (22/04/2026) —
+        <a href="AI-automation.pdf" target="_blank">PDF</a>
+      </div>
+    </div>
+
+    <div class="card" id="publications">
+      <h2>Publications</h2>
+
+      <h3>Working Papers</h3>
+      <ul class="publication-list">
+        <li>
+          <span class="pub-label">WP1</span>
+          Noawaroongroj P. and Rattagan E., <strong>Comparing PPO and A2C Algorithm for Game Levels Generation using Reinforcement Learning</strong> (11 July 2023). <a href="https://github.com/ekaratnida/papers/blob/main/Noawaroongroj_et_al.pdf" target="_blank">PDF</a>
+        </li>
+      </ul>
+
+      <h3>Patents</h3>
+      <ul class="publication-list">
+        <li>
+          <span class="pub-label">P1</span>
+          Ekarat Rattagan, Ying-Dar Lin, Yuan-Cheng Lai, Kate Ching-Ju Lin, <strong>Symbolic Regression and Clustering for Power Consumption Estimation on Smartphone Hardware Subsystem</strong>, Taiwan Patent I512451 <a href="https://speed.cs.nycu.edu.tw/~ydlin/I512451.pdf" target="_blank">PDF</a>
+        </li>
+      </ul>
+
+      <h3>Journal Articles</h3>
+      <ul class="publication-list">
+        <li>
+          <span class="pub-label">J6</span>
+          Sitsuksai, V., & Rattagan, E. (2023). <strong>Analyzing Influential Factors on the Recovery Time of Non-Performing Loans: A Time Series and Machine Learning Approach</strong>. ECTI Transactions on Computer and Information Technology (ECTI-CIT), 17(4), 522-532.
+        </li>
+        <li>
+          <span class="pub-label">J5</span>
+          Chian Techapanupreeda, Ekarat Rattagan, Werasak Kurutach, <strong>A Transaction Security Accountability Protocol for Electronic Health Systems</strong>. Int. Arab J. Inf. Technol. (2022).
+        </li>
+        <li>
+          <span class="pub-label">J4</span>
+          Hesham El-Sayed, Sharmi Sankar, Yousef-Awwad Daraghmi, Prayag Tiwari, Ekarat Rattagan, Manoranjan Mohanty, Deepak Puthal, Mukesh Prasad: <strong>Accurate Traffic Flow Prediction in Heterogeneous Vehicular Networks in an Intelligent Transport System Using a Supervised Non-Parametric Classifier</strong>. Sensors 18(6): 1696 (2018)
+        </li>
+        <li>
+          <span class="pub-label">J3</span>
+          Ekarat Rattagan, Ying-Dar Lin, Yuan-Cheng Lai, Edward T.H. Chu, and Kate Ching-Ju Li, <strong>Clustering and Symbolic Regression for Power Consumption Estimation on Smartphone Hardware Subsystems</strong>. IEEE Transactions on Sustainable Computing, 2018.
+        </li>
+        <li>
+          <span class="pub-label">J2</span>
+          Ekarat Rattagan, Edward T.-H. Chu, Ying-Dar Lin, Yuan-Cheng Lai, <strong>Semi-online Power Estimation for Smartphone Hardware Components</strong>. IEEE Transactions on Sustainable Computing, 2016.
+        </li>
+        <li>
+          <span class="pub-label">J1</span>
+          Ying-Dar Lin, Ekarat Rattagan, Yuan-Cheng Lai, Li-Pin Chang, Yun-Chien Yo, Cheng-Yuan Ho, and Shun-Lee Chang, <strong>Calibrating Parameters and Formulas for Process-level Energy Consumption Profiling in Smartphones</strong>. Journal of Network and Computer Applications, Vol. 44, Sep. 2014.
+        </li>
+      </ul>
+
+      <h3>Conference Papers</h3>
+      <ul class="publication-list">
+        <li>
+          <span class="pub-label">C3</span>
+          C. Ekarittikrai and E. Rattagan, <strong>Enhancing Market Making Strategies with Deep Reinforcement Learning-Based Quoting Decisions</strong>. 2024 21st International Joint Conference on Computer Science and Software Engineering (JCSSE), Phuket, Thailand, 2024, pp. 324-329
+        </li>
+        <li>
+          <span class="pub-label">C2</span>
+          Ekarat Rattagan, <strong>Wi-Fi Usage Monitoring and Power Management Policy for Smartphone Background Applications</strong>. Management and Innovation Technology International Conference (MITicon), Bang-Saen, Thailand, 12-14 October 2016.
+        </li>
+        <li>
+          <span class="pub-label">C1</span>
+          Ekarat Rattagan, Edward T.-H. Chu, Ying-Dar Lin, Yuan-Cheng Lai, <strong>Semi-online Power Estimation for Smartphone Hardware Components</strong>. SIES (10th IEEE International Symposium on Industrial Embedded Systems), Siegen, Germany, 8-10 June 2015.
+        </li>
+      </ul>
+
+      <h3>More Publications</h3>
+      <div class="contact-links">
+        <a href="https://scholar.google.com/citations?user=HJBVycAAAAAJ&hl=en" target="_blank">Google Scholar</a>
+        <a href="https://www.researchgate.net/profile/Ekarat_Rattagan" target="_blank">ResearchGate</a>
+        <a href="https://dblp.org/pid/147/4221.html" target="_blank">DBLP</a>
+        <a href="https://docs.google.com/document/d/1zOslQgRlhmgMttOB5ltSCddD2KOc50Mr7KKCgwhcEJI/edit?usp=sharing" target="_blank">Documents</a>
+      </div>
+    </div>
+
+    <div class="card" id="games">
+      <h2>Experimental Games</h2>
+      <p><a href="https://gamecoder01.itch.io" target="_blank">itch.io Profile</a></p>
+      <div class="games-grid">
+        <a href="game/candycrushc/game.html" target="_blank" class="game-link">Candy Crush Clone</a>
+        <a href="game/hit/index.html" target="_blank" class="game-link">Hit Mule</a>
+      </div>
+    </div>
+
+    <div class="card" id="contact">
+      <h2>Contact</h2>
+      <p>Email: ekarat [at] as [dot] nida.ac.th</p>
+      <div class="contact-links">
+        <a href="https://www.linkedin.com/in/ekarat-rattagan-478210100/" target="_blank">LinkedIn</a>
+        <a href="https://www.facebook.com/pok.pok.330467/" target="_blank">Facebook</a>
+        <a href="https://www.youtube.com/@pokekarat" target="_blank">YouTube</a>
+      </div>
+      <div style="margin-top: 1.5rem;">
+        <small>Page visits:</small>
+        <div class="visitor-counter" id="CounterVisitor"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <p>&copy; 2026 Ekarat Rattagan. All rights reserved.</p>
+  </div>
+
+  <script>
+    var n = localStorage.getItem('on_load_counter');
+    if (n === null) {
+      n = 0;
+    }
+    n++;
+    localStorage.setItem("on_load_counter", n);
+
+    var nums = n.toString().split('').map(Number);
+    var counterEl = document.getElementById('CounterVisitor');
+    nums.forEach(function(i) {
+      var span = document.createElement('span');
+      span.className = 'counter-item';
+      span.textContent = i;
+      counterEl.appendChild(span);
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Hit Mule — Phaser 3</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- Phaser 3 CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/phaser@3/dist/phaser.min.js"></script>
+</head>
+<body>
+  <div class="wrap">
+    <div class="panel">
+      <h1>Hit Mule</h1>
+      <div class="muted">Whack the mules, avoid bombs. 60s to score as high as you can.</div>
+      <div id="game"></div>
+      <div class="row">
+        <button id="startBtn">Start Game</button>
+        <label class="muted"><input id="soundToggle" type="checkbox" checked> Sound</label>
+      </div>
+      <div class="muted hint">Tip: Golden mule = +5. Bomb = -3 and short stun.</div>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
